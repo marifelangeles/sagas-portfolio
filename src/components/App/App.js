@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -12,4 +13,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapReduxStateToProps = reduxState => ({
+  reduxState
+});
+
+export default connect(mapReduxStateToProps)(App);
