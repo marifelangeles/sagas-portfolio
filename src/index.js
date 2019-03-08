@@ -30,7 +30,7 @@ function* fetchTags(action) {
     console.log('in fetch action', action);
     try {
         // get projects from server
-        // fetch array of strings of tag name
+        // fetch array of objects with properties: ("id", "name")
         const tags = axios.get('/tag');
         yield put({ type: 'SET_TAGS', payload: tags.data })
     } catch (error) {
