@@ -17,7 +17,7 @@ function* fetchProjects(action) {
     console.log('in fetch action', action);
     try {
         // get projects from server
-        // expect object with properties: ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id") 
+        // fetch array of objects with properties: ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
         const projects = axios.get('/project');
         yield put({ type: 'SET_PROJECTS', payload: projects.data })
     } catch(error) {
@@ -26,9 +26,24 @@ function* fetchProjects(action) {
     
 }
 
+function* fetchTags(action) {
+    console.log('in fetch action', action);
+    try {
+        // get projects from server
+        // fetch array of strings of tag name
+        const tags = axios.get('/tag');
+        yield put({ type: 'SET_TAGS', payload: tags.data })
+    } catch (error) {
+        console.log('error with fetchProjects', error);
+    }
+
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
+    yield takeEvery('FETCH_TAGS', fetchTags);
+
 }
 
 // Create sagaMiddleware
