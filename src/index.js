@@ -27,6 +27,18 @@ function* fetchProjects() {
     
 }
 
+function* addProjects(action) {
+    console.log('in addProjects');
+    try {
+        // make post request to server
+        yield axios.post('/project', action.payload);
+        // fetch updated project list
+        yield put({ type: 'SET_PROJECTS'});
+    } catch (error) {
+        console.log('error with addProjects', error);
+    }
+}
+
 function* fetchTags(action) {
     console.log('in fetch action', action);
     try {
@@ -44,7 +56,7 @@ function* fetchTags(action) {
 function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('FETCH_TAGS', fetchTags);
-
+    yield takeEvery('ADD_PROJECTS', addProjects);
 }
 
 
