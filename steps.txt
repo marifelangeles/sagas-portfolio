@@ -1,0 +1,2 @@
+setup client and server side routes to fetch data from database
+add UI in react components

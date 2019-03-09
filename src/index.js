@@ -13,13 +13,14 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 
 
-function* fetchProjects(action) {
-    console.log('in fetch action', action);
+function* fetchProjects() {
+    console.log('in fetch action');
     try {
         // get projects from server
         // fetch array of objects with properties: ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
-        const projects = axios.get('/project');
-        yield put({ type: 'SET_PROJECTS', payload: projects.data })
+        const projectResponse = yield axios.get('/project');
+        // send projects to redux
+        yield put({ type: 'SET_PROJECTS', payload: projectResponse.data });
     } catch(error) {
         console.log('error with fetchProjects', error);
     }
@@ -46,8 +47,7 @@ function* rootSaga() {
 
 }
 
-// Create sagaMiddleware
-const sagaMiddleware = createSagaMiddleware();
+
 
 // Used to store projects returned from the server
 const projects = (state = [], action) => {
@@ -68,6 +68,9 @@ const tags = (state = [], action) => {
             return state;
     }
 }
+
+// Create sagaMiddleware
+const sagaMiddleware = createSagaMiddleware();
 
 // Create one store that all components can use
 const storeInstance = createStore(

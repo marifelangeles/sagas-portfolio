@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-
+import Header from '../Header/Header';
 class App extends Component {
-  // Renders the entire app on the DOM
+
+  componentDidMount() {
+    this.getprojectlist();
+  }
+
+  getprojectlist = () => {
+    this.props.dispatch({ type: 'FETCH_PROJECTS'});
+  }
+
   render() {
     return (
       <div className="App">
-        <p>Empty Page</p>
+        <Header />
+        <pre>{JSON.stringify(this.props.reduxState.projects)}</pre>
+        <ul>
+          {this.props.reduxState.projects.map( project => 
+            <li>{project.name}</li>
+          )}
+        </ul>
       </div>
     );
   }
