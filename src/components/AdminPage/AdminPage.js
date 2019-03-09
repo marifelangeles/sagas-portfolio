@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AdminForm from '../AdminForm/AdminForm';
-
+import AdminTable from '../AdminTable/AdminTable';
 
 class AdminPage extends Component {
 
@@ -22,6 +22,7 @@ class AdminPage extends Component {
                 </header>
                 <h2>Add New Project</h2>
                 <AdminForm />
+                <AdminTable />
 
                 {/* {JSON.stringify(this.props.reduxState.projects)} */}
                 <div>
