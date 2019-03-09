@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
 import PortfolioItem from '../PortfolioItem/PortfolioItem';
 
 
@@ -33,6 +34,7 @@ class PortfolioPage extends Component {
     render() {
         return (
             <div>
+                <Header />
                 {JSON.stringify(this.props.reduxState.projects)}
                 <div>
                     {this.props.reduxState.projects.map( (project, i) =>
