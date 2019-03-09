@@ -15,10 +15,10 @@ class PortfolioItemText extends Component {
                     <div>{this.props.project.name}</div>
                 </Grid>
                 <Grid item sm={6}>
-                    <div><a href={this.props.project.github} target="_blank">Github</a></div>
+                    <div><a href={this.props.project.github} target="_blank" rel="noopener noreferrer">Github</a></div>
                 </Grid>
                 <Grid item sm={6}>
-                    <div><a href={this.props.project.website} target="_blank">Website</a></div>
+                    <div><a href={this.props.project.website} target="_blank" rel="noopener noreferrer">Website</a></div>
                 </Grid>
                 <Grid item sm={12}>
                     <div>{this.props.project.description}</div>
