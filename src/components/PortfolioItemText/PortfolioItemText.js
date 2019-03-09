@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
 
 
+
 class PortfolioItemText extends Component {
 
+    
     render() {
 
         return (
@@ -13,10 +15,10 @@ class PortfolioItemText extends Component {
                     <div>{this.props.project.name}</div>
                 </Grid>
                 <Grid item sm={6}>
-                    <div>{this.props.project.github}</div>
+                    <div><a href={this.props.project.github} target="_blank">Github</a></div>
                 </Grid>
                 <Grid item sm={6}>
-                    <div>{this.props.project.website}</div>
+                    <div><a href={this.props.project.website} target="_blank">Website</a></div>
                 </Grid>
                 <Grid item sm={12}>
                     <div>{this.props.project.description}</div>

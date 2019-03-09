@@ -13,10 +13,27 @@ class PortfolioPage extends Component {
         this.props.dispatch({ type: 'FETCH_PROJECTS' });
     }
 
+    // displayAvailableText = () => {
+    //     // only show properties that aren't null
+    //     const projectProperties = this.props.project;
+    //     // for (const property in projectProperties) {
+    //     //     console.log(property);
+
+    //     // }
+    //     for (const projectKey in projectProperties) {
+    //         if (projectProperties.hasOwnProperty(projectKey) !== null) {
+    //             console.log(projectProperties[projectKey]);
+
+
+    //         }
+    //     }
+    // }
+
+
     render() {
         return (
             <div>
-                <pre>{JSON.stringify(this.props.reduxState.projects)}</pre>
+                {JSON.stringify(this.props.reduxState.projects)}
                 <div>
                     {this.props.reduxState.projects.map( (project, i) =>
                         <PortfolioItem key={i} project={project} />

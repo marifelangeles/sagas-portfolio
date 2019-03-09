@@ -7,7 +7,7 @@ import PortfolioItemText from '../PortfolioItemText/PortfolioItemText';
 class PortfolioItem extends Component {
 
     render() {
-        console.log('props', this.props.project);
+        // console.log('props', this.props.project);
         
         return (
             <Paper >

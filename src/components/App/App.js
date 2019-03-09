@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 import './App.css';
 import Header from '../Header/Header';
 import PortfolioPage from '../PortfolioPage/PortfolioPage';
@@ -17,8 +16,6 @@ class App extends Component {
   }
 }
 
-const mapReduxStateToProps = reduxState => ({
-  reduxState
-});
 
-export default connect(mapReduxStateToProps)(App);
+
+export default App;
