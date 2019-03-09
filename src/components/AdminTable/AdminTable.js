@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import AdminTableRow from '../AdminTableRow/AdminTableRow';
 
 class AdminTable extends Component {
 
     render() {
         return (
             <div>
+                {JSON.stringify(this.props.reduxState.projects)}
+
                 <table>
                     <thead>
                         <tr>
@@ -15,13 +17,9 @@ class AdminTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Project Name</td>
-                            <td>
-                                <button>View</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
+                        {this.props.reduxState.projects.map((project, i) =>
+                            <AdminTableRow key={i} project={project} />
+                        )}
                     </tbody>
                 </table>
             </div>
