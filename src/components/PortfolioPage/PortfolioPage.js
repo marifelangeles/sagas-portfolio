@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PortfolioItem from '../PortfolioItem/PortfolioItem';
 
 
 class PortfolioPage extends Component {
@@ -18,7 +19,7 @@ class PortfolioPage extends Component {
                 <pre>{JSON.stringify(this.props.reduxState.projects)}</pre>
                 <div>
                     {this.props.reduxState.projects.map( (project, i) =>
-                        <div key={i}>{project.name}</div>
+                        <PortfolioItem key={i} project={project} />
                     )}
                 </div>
             </div>

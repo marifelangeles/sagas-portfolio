@@ -6,7 +6,7 @@ const router = express.Router();
 // const project = ['project1,', 'project2'];
 
 router.get('/', (req, res) => {
-    const queryText = `SELECT "name" FROM "projects";`;
+    const queryText = `SELECT * FROM "projects";`;
     pool.query(queryText)
         .then(result => {
             console.log('result from GET', result.rows);
