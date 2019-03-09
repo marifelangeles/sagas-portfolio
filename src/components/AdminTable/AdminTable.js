@@ -7,7 +7,7 @@ class AdminTable extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.reduxState.projects)}
+                {/* {JSON.stringify(this.props.reduxState.projects)} */}
 
                 <table>
                     <thead>
