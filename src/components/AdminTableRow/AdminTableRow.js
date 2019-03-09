@@ -7,7 +7,7 @@ class AdminTableRow extends Component {
         return (
             <>
                 <tr>
-                    <td>Project Name</td>
+                    <td>{this.props.project.name}</td>
                     <td>
                         <button>View</button>
                         <button>Delete</button>
