@@ -11,20 +11,10 @@ class AdminForm extends Component {
         website: '',
         github: '',
         date_completed: '',
-        tag_id: 0,
+        tag_id: 1,
     }
 
-
-    handleDateChange = (event) => {
-        console.log('in handleDateChange');
-        let date = event.target.value;
-        console.log('date', date);
-        this.setState({
-            date_completed: date.value,
-        });
-        
-    }
-
+    
     handleTagChange = (event) => {
         console.log('in handleTagChange');
         let tag = Number(event.target.value);
@@ -47,7 +37,7 @@ class AdminForm extends Component {
         console.log('in handleSubmitClick');
         event.preventDefault();
         // on submit, dispatch to rootSaga for project to be added
-        this.props.dispatch({ type: 'ADD_PROJECTS', payload: this.state});
+        this.props.dispatch({ type: 'ADD_PROJECTS', payload: this.state }); 
         // clear input fields
         this.setState({
             name: '',
@@ -55,8 +45,9 @@ class AdminForm extends Component {
             website: '',
             github: '',
             date_completed: '',
-            tag_id: 0,
-        })        
+            tag_id: 1,
+        });
+
     }
 
     render() {
@@ -69,7 +60,7 @@ class AdminForm extends Component {
                     </label>
                     <label>
                         Date Completed
-                        <input type="date" onChange={this.handleDateChange}/>
+                        <input type="date" value={this.state.date_completed} onChange={event => this.setState({ date_completed: event.target.value})}/>
                     </label>
                     <label>
                         Tags
