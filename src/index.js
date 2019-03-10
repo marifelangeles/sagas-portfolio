@@ -39,6 +39,18 @@ function* addProjects(action) {
     }
 }
 
+function* deleteProjects(action) {
+    console.log('in deleteProjects');
+    try {
+        // make delete request to server
+        yield axios.delete('/project/', action.payload);
+        // fetch updated project list
+        yield put({ type: 'FETCH_PROJECTS' });
+    } catch (error) {
+        console.log('error with deleteProjects', error);
+    }
+}
+
 function* fetchTags(action) {
     console.log('in fetch action', action);
     try {
@@ -57,6 +69,8 @@ function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('FETCH_TAGS', fetchTags);
     yield takeEvery('ADD_PROJECTS', addProjects);
+    yield takeEvery('DELETE_PROJECTS', deleteProjects);
+
 }
 
 
