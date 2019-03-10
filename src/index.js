@@ -32,10 +32,12 @@ function* addProjects(action) {
     try {
         // make post request to server
         yield axios.post('/project', action.payload);
+        yield window.alert('Success! Project added.');
         // fetch updated project list
         yield put({ type: 'FETCH_PROJECTS'});
     } catch (error) {
         console.log('error with addProjects', error);
+        yield window.alert('Uh-oh. Project was not added.');
     }
 }
 

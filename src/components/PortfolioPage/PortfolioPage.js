@@ -19,7 +19,6 @@ class PortfolioPage extends Component {
         return (
             <div>
                 <Header />
-                {JSON.stringify(this.props.reduxState.projects)}
                 <div>
                     {this.props.reduxState.projects.map( (project, i) =>
                         <PortfolioItem key={i} project={project} />
