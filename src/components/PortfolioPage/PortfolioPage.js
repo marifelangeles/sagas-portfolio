@@ -16,6 +16,9 @@ class PortfolioPage extends Component {
 
 
     render() {
+        // let projectList = this.props.reduxState.projects;
+        // console.log('projectList', projectList);
+
         return (
             <div>
                 <Header />
