@@ -69,11 +69,6 @@ class AdminForm extends Component {
                     </label>
                     <label>
                         Date Completed
-                        {/* <DatePicker
-                            selected={this.state.date_completed}
-                            onChange={this.handleChangeFor('date_completed')}
-                        /> */}
-                        {/* <input type="date" onChange={this.handleChangeFor('date_completed')}/> */}
                         <input type="date" onChange={this.handleDateChange}/>
                     </label>
                     <label>

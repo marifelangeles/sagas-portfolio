@@ -67,10 +67,10 @@ Place thumbnail images in the `public/images` folder.
 ### Admin Page
 
 - [x] Client side route that displays a form allowing you to add a new project to your portfolio
-- [ ] Include a drop down menu with a list of tags
-- [x] Send data to the server and notify the user of success or failure
+- [x] Include a drop down menu with a list of tags
+- [ ] Send data to the server and notify the user of success or failure
 - [ ] List projects by name and allow the user to delete them
-- [ ] Include a button that navigates to the project page
+- [x] Include a button that navigates to the project page
 
 ### General Tasks
 
