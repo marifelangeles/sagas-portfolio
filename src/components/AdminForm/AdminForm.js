@@ -17,10 +17,10 @@ class AdminForm extends Component {
 
     handleDateChange = (event) => {
         console.log('in handleDateChange');
-        let date = new Date(event.target.value).toDateString();
+        let date = event.target.value;
         console.log('date', date);
         this.setState({
-            date_completed: date,
+            date_completed: date.value,
         });
         
     }
@@ -36,7 +36,7 @@ class AdminForm extends Component {
     }
 
     handleChangeFor = (input) => (event) => {
-        console.log('in handleChange', event.target.value);
+        // console.log('in handleChange', event.target.value);
         // hold input values to local state
         this.setState({
             [input]: event.target.value,
@@ -47,14 +47,16 @@ class AdminForm extends Component {
         console.log('in handleSubmitClick');
         event.preventDefault();
         // on submit, dispatch to rootSaga for project to be added
-        // this.props.dispatch({ type: 'ADD_PROJECTS', payload: this.state})
+        this.props.dispatch({ type: 'ADD_PROJECTS', payload: this.state});
+        console.log('this.state', this.state);
+        
         
     }
 
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmitClick}>
                     <label>
                         Project Name
                         <input type="text" placeholder="Name" onChange={this.handleChangeFor('name')} />
