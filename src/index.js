@@ -43,7 +43,7 @@ function* deleteProjects(action) {
     console.log('in deleteProjects');
     try {
         // make delete request to server
-        yield axios.delete('/project/', action.payload);
+        yield axios.delete('/project/' + action.payload);
         // fetch updated project list
         yield put({ type: 'FETCH_PROJECTS' });
     } catch (error) {
