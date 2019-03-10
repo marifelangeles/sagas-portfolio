@@ -11,7 +11,7 @@ class AdminForm extends Component {
         website: '',
         github: '',
         date_completed: '',
-        tag_id: 1,
+        tag_id: 0,
     }
 
 
@@ -48,9 +48,15 @@ class AdminForm extends Component {
         event.preventDefault();
         // on submit, dispatch to rootSaga for project to be added
         this.props.dispatch({ type: 'ADD_PROJECTS', payload: this.state});
-        console.log('this.state', this.state);
-        
-        
+        // clear input fields
+        this.setState({
+            name: '',
+            description: '',
+            website: '',
+            github: '',
+            date_completed: '',
+            tag_id: 0,
+        })        
     }
 
     render() {
@@ -59,7 +65,7 @@ class AdminForm extends Component {
                 <form onSubmit={this.handleSubmitClick}>
                     <label>
                         Project Name
-                        <input type="text" placeholder="Name" onChange={this.handleChangeFor('name')} />
+                        <input type="text" placeholder="Name" onChange={this.handleChangeFor('name')} value={this.state.name} />
                     </label>
                     <label>
                         Date Completed
@@ -72,7 +78,8 @@ class AdminForm extends Component {
                     </label>
                     <label>
                         Tags
-                        <select onChange={this.handleTagChange}>
+                        <select onChange={this.handleTagChange} value={this.state.tag_id}>
+                            <option value="0">Select</option>
                             <option value="1">React</option>
                             <option value="2">jQuery</option>
                             <option value="3">Node</option>
@@ -83,15 +90,15 @@ class AdminForm extends Component {
                     </label>
                     <label>
                         Github URL
-                        <input type="text" placeholder="Github URL" onChange={this.handleChangeFor('github')} />
+                        <input type="text" placeholder="Github URL" onChange={this.handleChangeFor('github')} value={this.state.github}/>
                     </label>
                     <label>
                         Website URL
-                        <input type="text" placeholder="Website URL (Optional)" onChange={this.handleChangeFor('website')} />
+                        <input type="text" placeholder="Website URL (Optional)" onChange={this.handleChangeFor('website')} value={this.state.website}/>
                     </label>
                     <label>
                         Description
-                        <input type="text" placeholder="Description" onChange={this.handleChangeFor('description')} />
+                        <input type="text" placeholder="Description" onChange={this.handleChangeFor('description')} value={this.state.description}/>
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
