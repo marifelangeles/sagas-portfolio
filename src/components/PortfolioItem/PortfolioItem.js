@@ -8,14 +8,17 @@ import PortfolioThumbnail from './PortfolioThumbnail';
 class PortfolioItem extends Component {
 
     render() {
-        // console.log('props', this.props.project);
         
         return (
             <Paper >
                 <Grid container spacing={0}>
-                    <PortfolioThumbnail />
-                    <Grid item sm={12} md={4}>
-                        <PortfolioItemText project={this.props.project}/>
+                    <Grid item xs={12} md={8}>
+                        <PortfolioThumbnail />
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <Grid container>
+                            <PortfolioItemText project={this.props.project}/>
+                        </Grid>      
                     </Grid>
                 </Grid>
             </Paper>
