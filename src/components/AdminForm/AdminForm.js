@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import DatePicker from "react-datepicker";
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+// select field
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Button from '@material-ui/core/Button';
+
+
+
 
 
 class AdminForm extends Component {
@@ -15,6 +25,7 @@ class AdminForm extends Component {
     }
 
     
+
     handleTagChange = (event) => {
         console.log('in handleTagChange');
         let tag = Number(event.target.value);
@@ -51,42 +62,91 @@ class AdminForm extends Component {
     }
 
     render() {
+        
         return (
             <div>
                 <form onSubmit={this.handleSubmitClick}>
-                    <label>
-                        Project Name
-                        <input type="text" placeholder="Name" onChange={this.handleChangeFor('name')} value={this.state.name} />
-                    </label>
-                    <label>
-                        Date Completed
-                        <input type="date" value={this.state.date_completed} onChange={event => this.setState({ date_completed: event.target.value})}/>
-                    </label>
-                    <label>
-                        Tags
-                        <select onChange={this.handleTagChange} value={this.state.tag_id}>
-                            <option value="0">Select</option>
-                            <option value="1">React</option>
-                            <option value="2">jQuery</option>
-                            <option value="3">Node</option>
-                            <option value="4">SQL</option>
-                            <option value="5">Redux</option>
-                            <option value="6">HTML</option>
-                        </select>
-                    </label>
-                    <label>
-                        Github URL
-                        <input type="text" placeholder="Github URL" onChange={this.handleChangeFor('github')} value={this.state.github}/>
-                    </label>
-                    <label>
-                        Website URL
-                        <input type="text" placeholder="Website URL (Optional)" onChange={this.handleChangeFor('website')} value={this.state.website}/>
-                    </label>
-                    <label>
-                        Description
-                        <input type="text" placeholder="Description" onChange={this.handleChangeFor('description')} value={this.state.description}/>
-                    </label>
-                    <input type="submit" value="Submit" />
+                    <TextField
+                        label="Project Name"
+                        value={this.state.name}
+                        onChange={this.handleChangeFor('name')}
+                        margin="normal"
+                        variant="outlined"
+                    />
+
+                    <TextField
+                        label="Date Completed"
+                        placeholder="Date Completed"
+                        margin="normal"
+                        variant="outlined"
+                        onChange={event => this.setState({ date_completed: event.target.value })}
+                        value={this.state.date_completed}
+                    />
+
+                    <FormControl variant="outlined" >
+                        <InputLabel
+                            ref={ref => {
+                                this.InputLabelRef = ref;
+                            }}
+                            htmlFor="outlined-age-simple"
+                        >
+                            Tags
+                        </InputLabel>
+                        <Select
+                            value={this.state.tag_id}
+                            onChange={this.handleTagChange} 
+                            input={
+                                <OutlinedInput
+                                    // labelWidth={this.state.labelWidth}
+                                    name="Tags"
+                                />
+                            }
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={1}>React</MenuItem>
+                            <MenuItem value={2}>jQuery</MenuItem>
+                            <MenuItem value={3}>Node</MenuItem>
+                            <MenuItem value={3}>SQL</MenuItem>
+                            <MenuItem value={3}>Redux</MenuItem>
+                            <MenuItem value={3}>HTML</MenuItem>
+                        </Select>
+                    </FormControl>
+                    
+                    <TextField
+                        label="Github URL"
+                        value={this.state.github}
+                        onChange={this.handleChangeFor('github')}
+                        margin="normal"
+                        variant="outlined"
+                    />
+
+                    <TextField
+                        label="Website URL"
+                        value={this.state.website}
+                        onChange={this.handleChangeFor('website')} 
+                        margin="normal"
+                        variant="outlined"
+                    />
+
+                    <TextField
+                        label="Description"
+                        multiline
+                        rowsMax="4"
+                        value={this.state.description}
+                        onChange={this.handleChangeFor('description')}
+                        margin="normal"
+                        variant="outlined"
+                    />
+
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={this.handleSubmitClick}
+                    >
+                        Submit
+                    </Button>
                 </form>
             </div>
         );
@@ -96,5 +156,6 @@ class AdminForm extends Component {
 const mapReduxStateToProps = reduxState => ({
     reduxState
 });
+
 
 export default connect(mapReduxStateToProps)(AdminForm);
