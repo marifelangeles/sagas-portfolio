@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ButtonAppBar from './ButtonAppBar';
 
 class Header extends Component {
     render() {
         return (
-            <div>
-                <h1>Marifel Angeles</h1>
-            </div>
+            <ButtonAppBar />
         );
     }
 }
