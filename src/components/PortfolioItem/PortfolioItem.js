@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Paper, Grid} from '@material-ui/core';
 import PortfolioItemText from '../PortfolioItemText/PortfolioItemText';
+import PortfolioThumbnail from './PortfolioThumbnail';
 
 
 class PortfolioItem extends Component {
@@ -11,11 +12,9 @@ class PortfolioItem extends Component {
         
         return (
             <Paper >
-                <Grid container spacing={16}>
-                    <Grid item sm={8}>
-                        <div>{this.props.project.thumbnail}</div>
-                    </Grid>
-                    <Grid item sm={4}>
+                <Grid container spacing={0}>
+                    <PortfolioThumbnail />
+                    <Grid item sm={12} md={4}>
                         <PortfolioItemText project={this.props.project}/>
                     </Grid>
                 </Grid>

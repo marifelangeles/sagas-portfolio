@@ -6,12 +6,8 @@ import { Grid } from '@material-ui/core';
 
 class PortfolioItemText extends Component {
 
-
-
     render() {
         
-        
-
         return (
             <Grid container>
                 <Grid item sm={12}>
