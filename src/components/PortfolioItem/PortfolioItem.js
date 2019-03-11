@@ -16,8 +16,8 @@ class PortfolioItem extends Component {
                         <PortfolioThumbnail />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Grid container>
-                            <PortfolioItemText project={this.props.project}/>
+                        <Grid container >
+                                <PortfolioItemText project={this.props.project}/>
                         </Grid>      
                     </Grid>
                 </Grid>

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+// // for appbar
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+// import Typography from '@material-ui/core/Typography';
+// components
 import AdminForm from '../AdminForm/AdminForm';
 import AdminTable from '../AdminTable/AdminTable';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PortfolioPage from '../PortfolioPage/PortfolioPage';
+import AdminHeader from './AdminHeader';
 
 class AdminPage extends Component {
 
@@ -19,9 +26,7 @@ class AdminPage extends Component {
     render() {
         return (
             <div>
-                <header>
-                    <h1>Admin</h1>
-                </header>
+                <AdminHeader />
                 <nav>
                     <Link to='/'>Back to Porfolio</Link>
                 </nav>
